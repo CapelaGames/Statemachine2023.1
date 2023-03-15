@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     public void Heal()
     {
-        int heal = Random.Range(20, 30);
+        int heal = Random.Range(20,30);
 
         _health = Mathf.Min(_health + heal, _maxHealth);
 
@@ -25,6 +25,6 @@ public class Enemy : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        _healthBar.SetBar((float) _health, (float) _maxHealth);
+        _healthBar.SetBar((float)_health, (float) _maxHealth);
     }
 }

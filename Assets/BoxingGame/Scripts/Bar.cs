@@ -13,10 +13,12 @@ public class Bar : MonoBehaviour
 		_maxWidth = topLayer.rect.width;
 	}
 
-	public void SetBar(float current, float Max)
+	public void SetBar(float current, float max)
 	{
-		float percent = current / Max;
+		float percent = current / max;
 
-		topLayer.sizeDelta = new Vector2(percent * _maxWidth , topLayer.sizeDelta.y);
+		topLayer.sizeDelta = new Vector2(percent * _maxWidth, 
+											topLayer.sizeDelta.y);
 	}
+
 }

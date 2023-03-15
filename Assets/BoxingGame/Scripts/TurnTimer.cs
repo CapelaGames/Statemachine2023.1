@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurnTimer : MonoBehaviour
 {
 	public float currentTime = 0;
-	public float timerSpeed = 2;
+	public float timerSpeed = 0.5f;
 
 	public bool nextTurn = false;
 
@@ -13,13 +13,8 @@ public class TurnTimer : MonoBehaviour
 
 	void Update()
 	{
-		/*
-		x = x + 1;
-		x += 1;
-		x++;
-		*/
 		currentTime += timerSpeed * Time.deltaTime;
-		
+
 		if(currentTime >= 1)
 		{
 			nextTurn = true;
