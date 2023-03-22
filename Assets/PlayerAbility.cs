@@ -4,7 +4,10 @@ using UnityEngine;
 
 public abstract class PlayerAbility : MonoBehaviour
 {
-	[SerializeField] TurnTimer _turnTimer;
+	[SerializeField] 
+	protected TurnTimer _turnTimer;
+	[SerializeField] 
+	protected Enemy _enemy;
 
 	public abstract void UseAbility();
 

@@ -18,6 +18,16 @@ public class Enemy : MonoBehaviour
         UpdateHealthBar();
     }
 
+    public void DealDamage(int damage)
+    {
+        _health = Mathf.Max(0,_health - damage);
+        UpdateHealthBar();
+    }
+
+    //return type (e.g. int)
+    // we can store the result of this
+    //function eg: 
+    //int x = CurrentHealth();
     public int CurrentHealth()
     {
         return _health;

@@ -6,7 +6,11 @@ public class AttackAbility : PlayerAbility
 {
 	public override void UseAbility()
 	{
-		Debug.Log("ATTACK!");
-		EndTurn();
+		if(_turnTimer.IsNextTurn())
+		{
+			int damage = Random.Range(20, 30);
+			_enemy.DealDamage(damage);
+			EndTurn();
+		}
 	}
 }

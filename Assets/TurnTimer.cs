@@ -11,6 +11,11 @@ public class TurnTimer : MonoBehaviour
 
 	[SerializeField] private Bar _timerBar;
 
+	public bool IsNextTurn()
+	{
+		return _nextTurn;
+	}
+
 	public void ResetTimer()
 	{
 		_nextTurn = false;
