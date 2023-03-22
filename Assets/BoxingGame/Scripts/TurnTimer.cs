@@ -7,18 +7,31 @@ public class TurnTimer : MonoBehaviour
 	public float currentTime = 0;
 	public float timerSpeed = 0.5f;
 
-	public bool nextTurn = false;
+	private bool _nextTurn = false;
 
 	[SerializeField] private Bar _timerBar;
 
+	// bool myVar = IsNextTurn();
+	public bool IsNextTurn()
+	{
+		return _nextTurn;
+	}
+
+	public void ResetTimer()
+	{
+		_nextTurn = false;
+		currentTime = 0;
+	}
+
 	void Update()
 	{
+		if(_nextTurn) return;
+
 		currentTime += timerSpeed * Time.deltaTime;
 
 		if(currentTime >= 1)
 		{
-			nextTurn = true;
-			currentTime = 0;
+			_nextTurn = true;
 		}
 		_timerBar.SetBar(currentTime,1);
 	}
