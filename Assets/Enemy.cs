@@ -27,4 +27,9 @@ public class Enemy : MonoBehaviour
     {
         _healthBar.SetBar((float) _health, (float) _maxHealth);
     }
+
+    private void Update()
+    {
+        UpdateHealthBar();
+    }
 }
