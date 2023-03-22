@@ -18,6 +18,14 @@ public class Enemy : MonoBehaviour
         UpdateHealthBar();
     }
 
+    //DealDamage(20);
+    public void DealDamage(int damage)
+    {
+        _health = Mathf.Max(0, _health - damage);
+        UpdateHealthBar();
+    }
+
+    //int x = CurrentHealth();
     public int CurrentHealth()
     {
         return _health;

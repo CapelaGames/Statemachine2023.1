@@ -13,6 +13,7 @@ public class Statemachine : MonoBehaviour
 
 	[SerializeField] private State _state;
 	[SerializeField] private Enemy _enemy;
+	[SerializeField] private TurnTimer _turnTimer;
 
 	//Start
 	// --------> NextState();
@@ -57,13 +58,20 @@ public class Statemachine : MonoBehaviour
 		Debug.Log("Exiting Normal State");
 		NextState();
 	}
-
+	//[SerializeField] private TurnTimer _turnTimer; //add line to top
 	private IEnumerator LowHpState()
 	{
 		Debug.Log("Entering LowHp State");
 		while(_state == State.LowHp)
 		{
+			if(!_turnTimer.IsNextTurn())
+			{
+				yield return null;
+				continue;
+			}
+
 			_enemy.Heal();
+			_turnTimer.ResetTimer();
 			if(_enemy.CurrentHealth() > 80)
 			{
 				_state = State.Normal;
