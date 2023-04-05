@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Health : MonoBehaviour
     [SerializeField] private int _maxHealth = 100;
 
     [SerializeField] private Bar _healthBar;
+
+    [SerializeField] private RectTransform _gameOverPanel;
 
     public void Heal()
     {
@@ -41,5 +44,10 @@ public class Health : MonoBehaviour
     private void Update()
     {
         UpdateHealthBar();
+        if (_health <= 0)
+        {
+            _gameOverPanel.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

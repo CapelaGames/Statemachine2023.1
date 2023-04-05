@@ -58,7 +58,7 @@ public class StateMachine : MonoBehaviour
                 continue;
             }
             
-            int randomDamage = Random.Range(1, 9);
+            int randomDamage = Random.Range(10, 30);
             _playerHealth.DealDamage( randomDamage );
             //_playerHealth.DealDamage(Random.Range(1, 9)); //above 2 lines done as 1 line
             
