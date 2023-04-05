@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/BoxingGame/Scene/Battle.unity
+    guid: 4aad509ed1b95964297125fa9367cf6b
   m_configObjects: {}

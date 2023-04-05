@@ -14,6 +14,11 @@ public class TurnTimer : MonoBehaviour
 	// bool myVar = IsNextTurn();
 	public bool IsNextTurn()
 	{
+		if (Time.timeScale == 0)
+		{
+			return false;
+		}
+		
 		return _nextTurn;
 	}
 

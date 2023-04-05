@@ -12,14 +12,10 @@ public class Statemachine : MonoBehaviour
 	}
 
 	[SerializeField] private State _state;
-	[SerializeField] private Enemy _enemy;
+	[SerializeField] private Health _enemy;
+	[SerializeField] private Health _playerHealth;
 	[SerializeField] private TurnTimer _turnTimer;
-
-	//Start
-	// --------> NextState();
-	//-------------------------->PatrolState()
-	//-------------------------->CombatState()
-	//-------------------------->SleepState()
+	
 
 	private void Start()
 	{
@@ -51,14 +47,29 @@ public class Statemachine : MonoBehaviour
 			if(_enemy.CurrentHealth() < 30)
 			{
 				_state = State.LowHp;
+				yield return null; // wait 1 frame , only works in coroutines
+				continue;
 			}
+			
+			if(!_turnTimer.IsNextTurn())
+			{
+				yield return null; // wait 1 frame , only works in coroutines
+				continue;
+			}
+
+			int damage = Random.Range(30, 40);
+			_playerHealth.DealDamage(damage);
+			//_playerHealth.DealDamage(Random.Range(5,20)); // this line, is the same as the above 2 lines
+			
+			_turnTimer.ResetTimer();
 			yield return null; //continues 1 frame later
 		}
 
 		Debug.Log("Exiting Normal State");
 		NextState();
 	}
-	//[SerializeField] private TurnTimer _turnTimer; //add line to top
+	
+	
 	private IEnumerator LowHpState()
 	{
 		Debug.Log("Entering LowHp State");
