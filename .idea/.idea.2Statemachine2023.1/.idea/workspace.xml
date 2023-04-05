@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c37f16b-389e-4ed0-9029-f6e1c642fca0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.2Statemachine2023.1/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.2Statemachine2023.1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.2Statemachine2023.1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoxingGame/Scene/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BoxingGame/Scene/Battle.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/Enemy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/Enemy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/PlayerAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/PlayerAbility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/Statemachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/Statemachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/TurnTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BoxingGame/Scripts/TurnTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +90,7 @@
       <updated>1679441274100</updated>
       <workItem from="1679441277081" duration="6885000" />
       <workItem from="1680651906870" duration="800000" />
-      <workItem from="1680668411879" duration="5905000" />
+      <workItem from="1680668411879" duration="6985000" />
     </task>
     <servers />
   </component>
