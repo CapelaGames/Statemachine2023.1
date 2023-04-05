@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
+
 public class StateMachine : MonoBehaviour
 {
     public enum State
@@ -12,18 +15,12 @@ public class StateMachine : MonoBehaviour
     }
 
     [SerializeField] private State _state;
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private Health _health; // this was _enemy, you can leave it as _enemy if you want (easier)
+    [SerializeField] private Health _playerHealth;
     [SerializeField] private TurnTimer _turnTimer;
-
-    //Keep track of which state we are in
-    //Start
-    // -------> NextState()
-    //---------------> PatrolState()
-    //---------------> CombatState()
-
+    
     private void Start()
     {
-        //_state = State.Patrol;
         NextState();
     }
 
@@ -48,11 +45,24 @@ public class StateMachine : MonoBehaviour
         Debug.Log("Enter Normal State");
         while(_state == State.Normal)
         {
-            if(_enemy.CurrentHealth() < 30)
+            if(_health.CurrentHealth() < 30)
             {
                 _state = State.LowHP;
+                yield return null;
+                continue;
             }
-
+            
+            if(!_turnTimer.IsNextTurn())
+            {
+                yield return null;
+                continue;
+            }
+            
+            int randomDamage = Random.Range(1, 9);
+            _playerHealth.DealDamage( randomDamage );
+            //_playerHealth.DealDamage(Random.Range(1, 9)); //above 2 lines done as 1 line
+            
+            _turnTimer.ResetTimer();
             yield return null;//wait a single frame
         }
         Debug.Log("Exit Normal State");
@@ -71,9 +81,9 @@ public class StateMachine : MonoBehaviour
             }
 
 
-            _enemy.Heal();
+            _health.Heal();
             _turnTimer.ResetTimer();
-            if(_enemy.CurrentHealth() > 80)
+            if(_health.CurrentHealth() > 80)
             {
                 _state = State.Normal;
             }
